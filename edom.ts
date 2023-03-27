@@ -20,6 +20,7 @@ interface edomTemplate extends Object {
     classes?: string[];
     children?: edomTemplate[];
     type?: string;
+    checked?: boolean;
     src?: string;
     for?: string;
     groupID?: string;
@@ -165,6 +166,24 @@ class edom {
                 }
                 if (_template.type != undefined) {
                     (currentChild as edomInputElement).type = _template.type;
+                }
+                if (_template.checked != undefined) {
+                    (currentChild as edomInputElement).checked =
+                        _template.checked;
+                    currentChild.addClick(
+                        'clickChangeState',
+                        (self: edomElement) => {
+                            if (
+                                (self as edomInputElement).checked ===
+                                (self.element as HTMLInputElement).checked
+                            ) {
+                                return;
+                            }
+                            (self as edomInputElement).checked = (
+                                self.element as HTMLInputElement
+                            ).checked;
+                        }
+                    );
                 }
                 if (_template.classes != undefined) {
                     currentChild.applyStyle(..._template.classes);
@@ -388,6 +407,15 @@ class edomInputElement extends edomElement {
     public set type(type: string) {
         this._type = type;
         (this.element as HTMLInputElement).type = type;
+    }
+
+    private _checked: boolean = false;
+    public get checked(): boolean {
+        return this._checked;
+    }
+    public set checked(state: boolean) {
+        this._checked = state;
+        (this.element as HTMLInputElement).checked = state;
     }
 
     private _groupID: string = '';
