@@ -516,7 +516,7 @@ class edomLabelElement extends edomElement {
     }
 
     public set for(htmlFor: string) {
-        this.for = htmlFor;
+        this._for = htmlFor;
         (this.element as HTMLLabelElement).htmlFor = this.for;
     }
 }
