@@ -16,6 +16,7 @@ interface handlerPreObject extends Object {
 interface edomTemplate extends Object {
     tag: string;
     text?: string;
+    value?: string;
     id?: string;
     classes?: string[];
     children?: edomTemplate[];
@@ -163,6 +164,9 @@ class edom {
                 }
                 if (_template.text != undefined) {
                     currentChild.text = _template.text;
+                }
+                if (_template.value != undefined) {
+                    (currentChild as edomInputElement).value = _template.value;
                 }
                 if (_template.type != undefined) {
                     (currentChild as edomInputElement).type = _template.type;
