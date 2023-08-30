@@ -1,4 +1,4 @@
 *.js
-!pack/**/*.js
+!docs/**/*.js
 node_modules/
 .idea
