@@ -4,6 +4,6 @@
     "uglify-js": "^3.17.4"
   },
   "scripts": {
-    "uglify": "uglifyjs src/*.js -o pack/latest/edom.min.js"
+    "uglify": "uglifyjs src/*.js -o docs/latest/edom.min.js"
   }
 }

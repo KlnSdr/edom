@@ -1,3 +1,4 @@
 *.js
 !pack/**/*.js
 node_modules/
+.idea
