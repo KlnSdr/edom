@@ -14,7 +14,7 @@ class edom {
   }
 
   public static newElement(
-    tagname: string
+    tagName: string
   ):
     | edomElement
     | edomInputElement
@@ -23,37 +23,37 @@ class edom {
     | edomImageElement
     | edomLabelElement
     | edomTAElement {
-    switch (tagname.toLowerCase()) {
+    switch (tagName.toLowerCase()) {
       case "input":
-        const elmnt: edomInputElement = new edomInputElement(
+        const element: edomInputElement = new edomInputElement(
           false,
-          tagname
+          tagName
         ) as edomInputElement;
-        elmnt.addChange("onInput", (self: edomInputElement) => {
+        element.addChange("onInput", (self: edomInputElement) => {
           self.value = (self.element as HTMLInputElement).value;
         });
-        return elmnt;
+        return element;
 
       case "textarea":
         const ta: edomTAElement = new edomInputElement(
           false,
-          tagname
+          tagName
         ) as edomTAElement;
         ta.addChange("onInput", (self: edomTAElement) => {
           self.value = (self.element as HTMLTextAreaElement).value;
         });
         return ta;
       case "a":
-        return new edomAnchorElement(false, tagname);
+        return new edomAnchorElement(false, tagName);
       case "ul":
       case "ol":
-        return new edomListElement(false, tagname);
+        return new edomListElement(false, tagName);
       case "img":
-        return new edomImageElement(false, tagname);
+        return new edomImageElement(false, tagName);
       case "label":
-        return new edomLabelElement(false, tagname);
+        return new edomLabelElement(false, tagName);
       default:
-        return new edomElement(false, tagname);
+        return new edomElement(false, tagName);
     }
   }
 

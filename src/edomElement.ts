@@ -32,21 +32,21 @@ class edomElement {
 
     constructor(
         fromExisting: boolean,
-        tagname: string,
+        tagName: string,
         existingElement: HTMLElement | null = null
     ) {
         this._id = Math.random().toString() + Math.random().toString();
-        if (fromExisting === true) {
+        if (fromExisting) {
             if (existingElement === null) {
                 throw new edomElementNullException("Given Element is null");
             } else {
                 this.element = existingElement!;
             }
         } else {
-            this.element = document.createElement(tagname);
+            this.element = document.createElement(tagName);
         }
         edom.allElements.push(this);
-        this.tag = tagname;
+        this.tag = tagName;
         return this;
     }
 
@@ -81,12 +81,12 @@ class edomElement {
         identifier: string,
         action: (self: this) => any
     ) {
-        const hdlr: () => void = () => {
+        const handlerWrapper: () => void = () => {
             action(this);
         };
-        this.handlers[identifier] = hdlr;
+        this.handlers[identifier] = handlerWrapper;
 
-        this.element.addEventListener(type, hdlr);
+        this.element.addEventListener(type, handlerWrapper);
     }
 
     public deleteEvent(type: string, identifier: string) {
@@ -128,7 +128,7 @@ class edomElement {
     }
 
     public delete(isChild: boolean = false): boolean {
-        if (isChild === false) {
+        if (!isChild) {
             if (this.parent !== undefined) {
                 for (let i = 0; i < this.parent!.children.length; i++) {
                     if (this.parent!.children[i].id === this.id) {
