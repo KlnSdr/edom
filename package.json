@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "typescript": "^5.2.2"
+    "typescript": "^5.2.2",
+    "uglify-js": "^3.17.4"
+  },
+  "scripts": {
+    "uglify": "uglifyjs src/*.js -o pack/latest/edom.min.js"
   }
 }
