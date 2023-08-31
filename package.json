@@ -4,6 +4,6 @@
     "uglify-js": "^3.17.4"
   },
   "scripts": {
-    "uglify": "uglifyjs src/edomElement.js src/edomInputElement.js src/edomTAElement.js src/edomAnchorElement.js src/edomElementNullException.js src/edomImageElement.js src/edomLabelElement.js src/edomListElement.js src/edom.js -o docs/latest/edom.min.js"
+    "uglify": "uglifyjs src/edomElement.js src/edomInputElement.js src/edomTAElement.js src/edomAnchorElement.js src/edomElementNullException.js src/edomImageElement.js src/edomLabelElement.js src/edomListElement.js src/edom.js src/edomRouter.js -o docs/latest/edom.min.js"
   }
 }
