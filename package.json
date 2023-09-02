@@ -4,6 +4,10 @@
     "uglify-js": "^3.17.4"
   },
   "scripts": {
-    "uglify": "uglifyjs src/edomElement.js src/edomInputElement.js src/edomTAElement.js src/edomAnchorElement.js src/edomElementNullException.js src/edomImageElement.js src/edomLabelElement.js src/edomListElement.js src/edom.js src/edomRouter.js -o docs/latest/edom.min.js --mangle"
+    "uglify": "uglifyjs dist/edomElement.js dist/edomInputElement.js dist/edomTAElement.js dist/edomAnchorElement.js dist/edomElementNullException.js dist/edomImageElement.js dist/edomLabelElement.js dist/edomListElement.js dist/edom.js dist/edomRouter.js -o docs/latest/edom.min.js --mangle",
+    "build": "npm run clean:out && tsc && npm run uglify && npm run build:types && npm run clean:build",
+    "build:types": "cat dist/*.d.ts > docs/latest/edom.d.ts",
+    "clean:build": "rm -rf dist",
+    "clean:out": "rm -rf docs/latest/*"
   }
 }
