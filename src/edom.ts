@@ -150,6 +150,9 @@ class edom {
         if (_template.for != undefined) {
           (currentChild as edomLabelElement).for = _template.for;
         }
+        if (_template.name != undefined) {
+          (currentChild as edomInputElement).name = _template.name;
+        }
         if (_template.groupID != undefined) {
           (currentChild as edomInputElement).groupID = _template.groupID;
         }

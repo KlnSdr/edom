@@ -26,6 +26,7 @@ interface edomTemplate extends Object {
     groupID?: string;
     target?: string;
     handler?: handlerPreObject[];
+    name?: string;
 }
 
 interface Component {

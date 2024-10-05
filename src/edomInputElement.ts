@@ -18,6 +18,15 @@ class edomInputElement extends edomElement {
         (this.element as HTMLInputElement).type = type;
     }
 
+    private _name: string = "";
+    public get name(): string {
+        return this._name;
+    }
+    public set name(name: string) {
+        this._name = name;
+        (this.element as HTMLInputElement).name = name;
+    }
+
     private _checked: boolean = false;
     public get checked(): boolean {
         return this._checked;
